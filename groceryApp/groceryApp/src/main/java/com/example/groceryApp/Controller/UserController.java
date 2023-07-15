@@ -15,8 +15,8 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
-    //@Autowired
-    //private userRepository userRepository;
+    @Autowired
+    private userRepository userRepository;
 
     @RequestMapping("/")
     public String home(){
@@ -34,8 +34,8 @@ public class UserController {
             return "registration";
         }
 
-        // Perform user registration logic
-        //userRepository.save(user);
+        //Perform user registration logic
+        userRepository.save(user);
 
         return "redirect:/login";
     }
