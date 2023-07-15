@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Product List</title>
+</head>
+<body>
+<h2>Product List</h2>
+<table>
+  <thead>
+  <tr>
+    <th>Product Name</th>
+    <th>Description</th>
+    <th>Image</th>
+    <th>Sell Price</th>
+    <th>Cost Price</th>
+    <th>Stock Unit</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+  <tbody>
+  <!-- Loop through products -->
+  <tr th:each="product : ${products}">
+    <td th:text="${product.productName}"></td>
+    <td th:text="${product.description}"></td>
+    <td th:text="${product.image}"></td>
+    <td th:text="${product.sellPrice}"></td>
+    <td th:text="${product.costPrice}"></td>
+    <td th:text="${product.stockUnit}"></td>
+    <td>
+      <a th:href="@{/seller/products/{id}/edit(id=${product.id})}">Edit</a>
+      <a th:href="@{/seller/products/{id}/delete(id=${product.id})}">Delete</a>
+    </td>
+  </tr>
+  </tbody>
+</table>
+<a href="/seller/products/add">Add Product</a>
+</body>
+</html>
